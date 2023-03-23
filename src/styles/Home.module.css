@@ -1,5 +1,5 @@
 .main {
-  padding-inline: 128px;
+  padding-inline: 80px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
   display: flex;
   padding-block: 16px;
   font-family: var(--font-mono);
-  padding-inline: 128px;
+  padding-inline: 80px;
 }
 
 .description {
@@ -77,4 +77,27 @@
   background: black;
   padding: 64px;
   z-index: -1;
+}
+
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #282828;}
+
+.table tr:hover {color: black; background: #808080; font-weight: bold;}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
 }

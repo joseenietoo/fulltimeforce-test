@@ -69,8 +69,8 @@ export default function Home() {
               <Button type='primary'>UPDATE COMMIT HISTORY</Button>
             </p>
           </Row>
-          <Col span={24} className={styles.center} justify="space-between">
-            <table>
+          <Col className={styles.center}>
+            <table className={styles.table}>
               <tr>
                 <th>Hash</th>
                 <th>Author</th>
@@ -79,7 +79,7 @@ export default function Home() {
               </tr>
               {
                 parsedData.map(((item, id) => (
-                  <tr key={id} className={styles.dataRow}>
+                  <tr key={id}>
                     <td>{item.sha}</td>
                     <td>{item.commit.author.name}</td>
                     <td>{format(new Date(item.commit.committer.date), "dd/MM/yyyy HH:mm:ss")}</td>
