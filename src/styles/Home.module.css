@@ -1,5 +1,5 @@
 .main {
-  display: flex;
+  padding-inline: 128px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -7,17 +7,19 @@
 }
 
 .header {
-  padding-inline: 128px;
   display: flex;
   padding-block: 16px;
+  font-family: var(--font-mono);
+  padding-inline: 128px;
 }
 
 .description {
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
-  font-family: var(--font-mono);
+  margin-bottom: 32px;
 }
 
 .description a {
@@ -66,7 +68,13 @@
   transform: translateZ(0);
 }
 
-.logo{
+.logo {
   position: relative;
   margin-right: 56px;
+}
+
+.blacky {
+  background: black;
+  padding: 64px;
+  z-index: -1;
 }
