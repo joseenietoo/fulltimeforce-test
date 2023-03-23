@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { Button, Col, Row } from 'antd'
 import { useState, useEffect } from 'react'
+import { format } from 'date-fns'
 
 export default function Home() {
   const gitHubRepoUrl = process.env.NEXT_PUBLIC_GITHUB_URL_REPO
@@ -78,10 +79,10 @@ export default function Home() {
               </tr>
               {
                 parsedData.map(((item, id) => (
-                  <tr key={id}>
+                  <tr key={id} className={styles.dataRow}>
                     <td>{item.sha}</td>
                     <td>{item.commit.author.name}</td>
-                    <td>{item.commit.committer.date}</td>
+                    <td>{format(new Date(item.commit.committer.date), "dd/MM/yyyy HH:mm:ss")}</td>
                     <td>{item.commit.message}</td>
                   </tr>
                 )
