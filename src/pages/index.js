@@ -24,6 +24,10 @@ export default function Home() {
       })
   }, [])
 
+  const handleClick = () => {
+    window.location.reload()
+  }
+
   if (isLoading) return (
     <div className={styles.blacky}>
       <center><p>Loading...</p></center>
@@ -65,8 +69,8 @@ export default function Home() {
         <main className={styles.main}>
           <Row className={[styles.center, styles.description]}>
             <p>
-              Click in this button to update data&nbsp;
-              <Button type='primary'>UPDATE COMMIT HISTORY</Button>
+              Click in this button to refresh&nbsp;
+              <Button type='primary' onClick={handleClick}>REFRESH</Button>
             </p>
           </Row>
           <Col className={styles.center}>
