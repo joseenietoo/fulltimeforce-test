@@ -18,10 +18,13 @@ cd fulltimeforce-test
 
 ## Getting Started
 ```
-# create .env file in project root directory with following
+Create .env file in project root directory with following
+```
 NEXT_PUBLIC_GITHUB_URL_REPO="https://github.com/joseenietoo/fulltimeforce-test.git"
 GITHUB_API_TOKEN="PUT_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE"
+```
 
+```
 # install dependencies
 yarn
 
