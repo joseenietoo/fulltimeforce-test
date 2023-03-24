@@ -10,7 +10,7 @@ You should have the following installed on your host
 ## Open terminal or cmd, clone repository and access root directory
 ```
 # clone repository
-git clone https://github.com/joseenietoo/fulltimeforce-test
+git clone https://github.com/joseenietoo/fulltimeforce-test.git
 
 # access root directory
 cd fulltimeforce-test
