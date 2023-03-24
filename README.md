@@ -7,10 +7,13 @@ You must have the following installed on your host
 You should have the following installed on your host
 * Yarn v1.22.19 or more
 
-## Cloning repository with Git
+## Open terminal or cmd, clone repository and access root directory
 ```
 # clone repository
-git clone 
+git clone https://github.com/joseenietoo/fulltimeforce-test
+
+# access root directory
+cd fulltimeforce-test
 ```
 
 ## Getting Started
