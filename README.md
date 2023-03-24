@@ -1,17 +1,23 @@
 ## Before You Go - Prerequisites
 You must have the following installed on your host
+* Git > v2.25.1
 * Node.js > v16.13.0 and <= 18.x.x
 * Node Package Manager (NPM v8.1.0 or more)
 
 You should have the following installed on your host
 * Yarn v1.22.19 or more
 
-## Getting Started
+## Cloning repository with Git
+```
+# clone repository
+git clone 
+```
 
+## Getting Started
 ```
 # create .env file in project root directory with following
 NEXT_PUBLIC_GITHUB_URL_REPO="https://github.com/joseenietoo/fulltimeforce-test.git"
-GITHUB_API_TOKEN=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
+GITHUB_API_TOKEN="PUT_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE"
 
 # install dependencies
 yarn
