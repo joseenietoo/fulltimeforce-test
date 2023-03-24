@@ -19,7 +19,7 @@ export default function Home() {
         setLoading(false)
       })
       .catch(() => {
-        alert("An error ocurred while fetching data, please refresh page and try again")
+        alert("An error ocurred while fetching data, please check your connection and try again")
         setLoading(false)
       })
   }, [])
@@ -36,66 +36,67 @@ export default function Home() {
   else if (!data)
     return (
       <div className={styles.blacky}>
-        <center><p>No data fetched, please refresh page and try again later.</p></center>
+        <center><p>No data fetched, please try again later.</p></center>
       </div>
     )
   else {
     const stringData = JSON.stringify(data.jsonResponse)
     const parsedData = JSON.parse(stringData)
-  if (parsedData.message?.includes("rate limit exceeded")) 
+    if (!parsedData.message)
+      return (
+        <div className='container'>
+          <Head>
+            <title>Test by José Nieto</title>
+            <meta name="description" content="fulltimeforce" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <div className={[styles.header]}>
+            <Image
+              className={styles.logo}
+              src="/fulltimeforce.svg"
+              alt="FULLTIMEFORCE Logo"
+              width={128}
+              height={64}
+              priority
+            />
+            <Col span={24}>URL of the queried repository {gitHubRepoUrl}</Col>
+          </div>
+          <main className={styles.main}>
+            <Row className={[styles.center, styles.description]}>
+              <p>
+                Click in this button to refresh&nbsp;
+                <Button type='primary' onClick={handleClick}>REFRESH</Button>
+              </p>
+            </Row>
+            <Col className={styles.center}>
+              <table className={styles.table}>
+                <tr>
+                  <th>Hash</th>
+                  <th>Author</th>
+                  <th>Date</th>
+                  <th>Message</th>
+                </tr>
+                {
+                  parsedData.map(((item, id) => (
+                    <tr key={id}>
+                      <td>{item.sha}</td>
+                      <td>{item.commit.author.name}</td>
+                      <td>{format(new Date(item.commit.committer.date), "dd/MM/yyyy HH:mm:ss")}</td>
+                      <td>{item.commit.message}</td>
+                    </tr>
+                  )
+                  ))
+                }
+              </table>
+            </Col>
+          </main>
+        </div>
+      )
+    else
       return (
         <div className={styles.blacky}>
-          <center><p>GitHub API rate limit exceeded.</p></center>
+          <center><p>{parsedData.message}</p></center>
         </div>)
-    return (
-      <div className='container'>
-        <Head>
-          <title>Test by José Nieto</title>
-          <meta name="description" content="fulltimeforce" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div className={[styles.header]}>
-          <Image
-            className={styles.logo}
-            src="/fulltimeforce.svg"
-            alt="FULLTIMEFORCE Logo"
-            width={128}
-            height={64}
-            priority
-          />
-          <Col span={24}>URL of the queried repository {gitHubRepoUrl}</Col>
-        </div>
-        <main className={styles.main}>
-          <Row className={[styles.center, styles.description]}>
-            <p>
-              Click in this button to refresh&nbsp;
-              <Button type='primary' onClick={handleClick}>REFRESH</Button>
-            </p>
-          </Row>
-          <Col className={styles.center}>
-            <table className={styles.table}>
-              <tr>
-                <th>Hash</th>
-                <th>Author</th>
-                <th>Date</th>
-                <th>Message</th>
-              </tr>
-              {
-                parsedData.map(((item, id) => (
-                  <tr key={id}>
-                    <td>{item.sha}</td>
-                    <td>{item.commit.author.name}</td>
-                    <td>{format(new Date(item.commit.committer.date), "dd/MM/yyyy HH:mm:ss")}</td>
-                    <td>{item.commit.message}</td>
-                  </tr>
-                )
-                ))
-              }
-            </table>
-          </Col>
-        </main>
-      </div>
-    )
   }
 }
