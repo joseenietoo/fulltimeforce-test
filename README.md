@@ -24,17 +24,17 @@ NEXT_PUBLIC_GITHUB_URL_REPO="https://github.com/joseenietoo/fulltimeforce-test.g
 GITHUB_API_TOKEN="PUT_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE"
 ```
 
-## install dependencies
+## Install dependencies
 ```
 yarn
 ```
 
-## init dev server
+## Initialize development server
 ```
 yarn dev
 ```
 
-## or optionally make an optimized for production 
+## Or optionally make an optimized for production 
 ```
 yarn build && yarn start
 ```
